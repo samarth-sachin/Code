@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Crime Heatmap</title>
+    <style>
+        html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; right: 0; left: 0; }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff4444;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.heat/0.2.0/leaflet-heat.js"></script>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="dangerNotification" class="notification">⚠️ Danger Detected! You are in a danger zone.</div>
+
+    <script>
+        var map = L.map('map').setView([18.674879883136093, 73.7329848497781], 12);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        
+        var dangerZones = [
+            [18.577476, 73.7722, 1.0],
+            [18.555655, 73.927502, 1.0],
+            [18.585159, 73.765916, 1.0],
+            [18.62505, 73.83644, 1.0],
+            [18.687767, 73.832808, 1.0]
+        ];
+        
+        var heat = L.heatLayer(dangerZones, {
+            radius: 25,
+            blur: 15,
+            maxZoom: 18
+        }).addTo(map);
+        
+        function getDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371;
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c;
+        }
+
+        function checkIfInDangerZone(userLat, userLng) {
+            return dangerZones.some(([lat, lng]) => getDistance(userLat, userLng, lat, lng) < 1);
+        }
+        
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(
+                function(position) {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+                    console.log("User Location:", userLat, userLng);
+
+                    L.marker([userLat, userLng]).addTo(map)
+                        .bindPopup("<b>You are here!</b>").openPopup();
+
+                    if (checkIfInDangerZone(userLat, userLng)) {
+                        document.getElementById('dangerNotification').style.display = 'block';
+                        new Audio('https://www.soundjay.com/button/beep-07.wav').play();
+                    } else {
+                        document.getElementById('dangerNotification').style.display = 'none';
+                    }
+                },
+                function(error) {
+                    console.error("GPS Error:", error.message);
+                    alert("Error getting location: " + error.message + ". Please allow location access.");
+                },
+                { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+            );
+        } else {
+            alert("Geolocation is not supported by this browser.");
+            console.error("Geolocation is not supported");
+        }
+    </script>
+</body>
+</html>

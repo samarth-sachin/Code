@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+        .app-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 90%;
+        }
+        header {
+            padding: 10px;
+            background-color: #f1f1f1;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-title {
+            flex-grow: 1;
+        }
+        footer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            width: 100%;
+        }
+        footer a {
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #e91e63;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #d81b60;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1 class="header-title">Your Strong Personality</h1>
+            <button onclick="showSettings()" class="button">
+                <span class="icon-settings">⚙️</span>
+            </button>
+        </header>
+
+        <div class="container">
+            <h2>Emergency</h2>
+            <div>
+                <button onclick="callAmbulance()" class="button"><img src="ambulance.png" style="width: 30px;"> (1122)</button>
+                <button onclick="connectBluetooth()" class="button"><img src="bluetooth3.jpeg" style="width: 30px;"></button>
+            </div>
+        </div>
+
+        <footer>
+            <a href="#" onclick="showHomePage()">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#" onclick="showAlerts()">
+                <span class="icon">🔔</span>
+                <span>Alerts</span>
+            </a>
+            <a href="#" onclick="showContacts()">
+                <span class="icon">📞</span>
+                <span>Contact</span>
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        function showSettings() {
+            alert('Navigating to Settings...');
+        }
+
+        function showHomePage() {
+            alert('Navigating to Home Page...');
+        }
+
+        function showAlerts() {
+            fetchAlerts();
+        }
+
+        function showContacts() {
+            alert('Navigating to Contacts Page...');
+        }
+
+        function callAmbulance() {
+            alert('Calling Ambulance...');
+        }
+
+        function fetchAlerts() {
+            fetch('getAlerts.php')
+                .then(response => response.json())
+                .then(data => {
+                    alert('Alerts Fetched: ' + JSON.stringify(data));
+                })
+                .catch(error => {
+                    alert('Error fetching alerts: ' + error);
+                });
+        }
+
+        function connectBluetooth() {
+            if (!navigator.bluetooth) {
+                alert('Bluetooth not supported on this device');
+                return;
+            }
+            navigator.bluetooth.requestDevice({ acceptAllDevices: true })
+                .then(device => {
+                    alert(`Connected to device: ${device.name}`);
+                    monitorVolume();
+                })
+                .catch(error => {
+                    alert('Error connecting to Bluetooth: ' + error);
+                });
+        }
+
+        function monitorVolume() {
+            navigator.mediaSession.setActionHandler('volumechange', () => {
+                alert('Volume changed');
+                showAlerts();
+            });
+        }
+
+        function fetchArticles() {
+            fetch('getArticles.php')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Articles:', data);
+                    alert('Articles Fetched Successfully!');
+                })
+                .catch(error => {
+                    alert('Error fetching articles: ' + error);
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchArticles);
+    </script>
+</body>
+
+</html>

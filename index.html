@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAT-OPS DSL Dashboard</title>
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.104/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.104/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <style>
+    html, body, #cesiumContainer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #dslControls {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(42, 42, 42, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 999;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      background: #4CAF50;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      margin: 5px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    textarea {
+      width: 300px;
+      height: 100px;
+      background: #333;
+      color: white;
+      border: 1px solid #555;
+    }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="dslControls">
+    <h3>SAT-OPS DSL Controls</h3>
+    <textarea id="dslCommand" placeholder="Enter DSL command (e.g., MOVE_SAT 1 50000)"></textarea><br>
+    <button onclick="executeDSL()">Execute</button>
+    <button onclick="resetView()">Reset View</button>
+  </div>
+
+  <script>
+    // Replace with your Cesium Ion token (https://cesium.com/ion/)
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxYWZiNDJkNy0yZWEwLTQ5OWQtYjk0MS0xOThlMTIxMDg1YTgiLCJpZCI6MzMyOTY1LCJpYXQiOjE3NTU1MTcyNzR9.raBDIk08ACyJ5JbAiqca_PFRHh1MyGLi3Bqfej5sL9Q'; 
+
+    // Initialize the Cesium Viewer
+    const viewer = new Cesium.Viewer('cesiumContainer', {
+      terrainProvider: Cesium.createWorldTerrain(),
+      timeline: true,
+      animation: true,
+      shouldAnimate: true,
+    });
+
+    // Remove default base layer (optional)
+    viewer.imageryLayers.remove(viewer.imageryLayers.get(0));
+
+    // Add a sample satellite (ISS TLE data)
+    const satelliteTLE = `1 25544U 98067A   24063.48611111  .00016717  00000-0  10270-3 0  9993
+2 25544  51.6416  32.7098 0005273  61.4170  82.2018 15.49970432427549`;
+
+    const satellite = viewer.entities.add({
+      name: 'ISS (ZARYA)',
+      position: new Cesium.SampledPositionProperty(),
+      path: {
+        resolution: 1,
+        width: 2,
+        material: new Cesium.PolylineGlowMaterialProperty({
+          glowPower: 0.2,
+          color: Cesium.Color.CYAN
+        })
+      },
+      model: {
+        uri: 'https://assets.agi.com/models/satellites/ISS/ISS.glb',
+        minimumPixelSize: 64
+      }
+    });
+
+    // Load TLE data and compute orbit
+    const tle = Cesium.Tle.parse(satelliteTLE);
+    const startTime = Cesium.JulianDate.now();
+    const endTime = Cesium.JulianDate.addHours(startTime, 6, new Cesium.JulianDate());
+    
+    Cesium.Tle.computeOrbit(tle, {
+      startTime: startTime,
+      endTime: endTime,
+      sampleInterval: 1,
+      target: satellite.position
+    });
+
+    // Zoom to the satellite
+    viewer.zoomTo(viewer.entities);
+
+    // DSL Execution Function (Mockup)
+    function executeDSL() {
+      const command = document.getElementById('dslCommand').value;
+      alert(`Executing DSL: ${command}\n(This is a placeholder for your DSL logic.)`);
+      
+      // Example: Change satellite altitude (mock implementation)
+      if (command.includes("MOVE_SAT")) {
+        const newAlt = parseFloat(command.split(" ")[2]);
+        alert(`Moving satellite to ${newAlt} km altitude.`);
+      }
+    }
+
+    // Reset camera view
+    function resetView() {
+      viewer.zoomTo(viewer.entities);
+    }
+  </script>
+</body>
+</html>

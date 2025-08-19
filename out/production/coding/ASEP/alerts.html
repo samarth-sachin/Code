@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts</title>
+    <style>body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f9f9f9;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 90%;
+    }
+
+    .container {
+        padding: 20px;
+        overflow-y: auto;
+        flex: 1;
+        width: 100%;
+    }
+
+    header {
+        padding: 10px;
+        background-color: #f1f1f1;
+        text-align: center;
+        width: 100%;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        background-color: #f9f9f9;
+        padding: 10px;
+        position: absolute;
+        bottom: 20px;
+    }
+
+    footer a {
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+        font-size: 14px;
+    }
+
+    footer a .icon {
+        display: block;
+        font-size: 24px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .grid-item {
+        text-align: center;
+        flex: 1 1 calc(50% - 10px);
+        margin: 5px 0;
+    }
+
+    .grid-item img {
+        max-width: 40px;
+        margin-bottom: 5px;
+    }
+
+    .alerts {
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow-y: auto;
+    }
+
+    .alert-message {
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+    }
+
+    .contacts {
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow-y: auto;
+    }
+
+    .contact-item {
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+    <div class="app-container alerts" id="alerts" style="display:none;">
+        <header>
+            <h1>Alerts</h1>
+        </header>
+        <div class="container">
+            <div class="alert-message">No new messages</div>
+        </div>
+        <footer>
+            <a href="#" onclick="showHomePage()">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#">
+                <span class="icon">🔔</span>
+                <span>Alerts</span>
+            </a>
+            <a href="#" onclick="showContacts()">
+                <span class="icon">📞</span>
+                <span>Contact</span>
+            </a>
+        </footer>
+    </div>
+    <div class="app-container alerts" id="alerts" style="display:none;">
+        <header>
+            <h1>Alerts</h1>
+        </header>
+        <div class="container">
+            <div class="alert-message">No new messages</div>
+        </div>
+        <footer>
+            <a href="#" onclick="showHomePage()">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#">
+                <span class="icon">🔔</span>
+                <span>Alerts</span>
+            </a>
+            <a href="#" onclick="showContacts()">
+                <span class="icon">📞</span>
+                <span>Contact</span>
+            </a>
+        </footer>
+    </div>
+
+    <div class="app-container contacts" id="contacts" style="display:none;">
+        <header>
+            <h1>Contact</h1>
+        </header>
+        <div class="container">
+            <div class="contact-item">Contact 1</div>
+            <div class="contact-item">Contact 2</div>
+            <div class="contact-item">Contact 3</div>
+            <button onclick="addContact()">Add Contact</button>
+        </div>
+        <footer>
+            <a href="#" onclick="showHomePage()">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#" onclick="showAlerts()">
+                <span class="icon">🔔</span>
+                <span>Alerts</span>
+            </a>
+            <a href="#">
+                <span class="icon">📞</span>
+                <span>Contact</span>
+            </a>
+        </footer>
+    </div>
+    <script>function showAlerts() {
+        document.querySelector('.app-container').style.display = 'none';
+        document.getElementById('contacts').style.display = 'none';
+        document.getElementById('alerts').style.display = 'flex';
+    }</script>
+
+</body>
+</html>

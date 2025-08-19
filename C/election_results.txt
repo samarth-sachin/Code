@@ -1,0 +1,10 @@
+===== Election Results =====
+
+Candidates and Votes:
+manisha: 1 votes
+more: 1 votes
+
+Voter Details:
+Name: asd, EPIC ID: 12345678901234, Aadhaar: 123456789012, Phone: 1234567890, Voted: No
+Name: asd, EPIC ID: 1, Aadhaar: 123456789012, Phone: 1234567890, Voted: Yes
+Name: sdf, EPIC ID: 123, Aadhaar: 123456789012, Phone: 1234567890, Voted: Yes

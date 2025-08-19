@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 90%;
+        }
+        .container {
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+            width: 100%;
+        }
+
+        header {
+            padding: 10px;
+            background-color: #f1f1f1;
+            text-align: center;
+            width: 100%;
+        }
+
+        .article-section {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            border-bottom: 1px solid #e91e63;
+            color: #880e4f;
+            text-align: center;
+            
+
+        .article-section h2 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .article-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #e91e63 transparent;
+        }
+
+        .article-carousel::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .article-carousel::-webkit-scrollbar-thumb {
+            background-color: #e91e63;
+            border-radius: 10px;
+        }
+
+        .article-card1 {
+            min-width: 300px;
+            background-color: #fff;
+            border: 1px solid #f48fb1;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            background-image: url(strong1.jpg);
+            background-size: cover;
+
+        }
+
+        .article-card1:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-card1 h3 {
+            font-size: 16px;
+            margin: 0 0 8px;
+            color: #d81b60;
+        }
+
+        .article-card1 p {
+            font-size: 14px;
+            color: #6d4c41;
+            margin: 0 0 10px;
+        }
+
+        .article-card1 a {
+            color: #e91e63;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .article-card1 a:hover {
+            text-decoration: underline;
+        }
+        .article-card2 {
+            min-width: 300px;
+            background-color: #fff;
+            border: 1px solid #f48fb1;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            background-image: url(download.jpeg);
+            background-size: cover;
+
+        }
+
+        .article-card2:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-card2 h3 {
+            font-size: 16px;
+            margin: 0 0 8px;
+            color: #d81b60;
+        }
+
+        .article-card2 p {
+            font-size: 14px;
+            color: #6d4c41;
+            margin: 0 0 10px;
+        }
+
+        .article-card2 a {
+            color: #e91e63;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .article-card2 a:hover {
+            text-decoration: underline;
+        }
+        .article-card3 {
+            min-width: 300px;
+            background-color: #fff;
+            border: 1px solid #f48fb1;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            background-image: url(strong2.jpg);
+            background-size: cover;
+
+        }
+
+        .article-card3:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-card3 h3 {
+            font-size: 16px;
+            margin: 0 0 8px;
+            color: #d81b60;
+        }
+
+        .article-card3 p {
+            font-size: 14px;
+            color: #6d4c41;
+            margin: 0 0 10px;
+        }
+
+        .article-card3 a {
+            color: #e91e63;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .article-card3 a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+            width: 100%;
+        }
+
+        header {
+            padding: 10px;
+            background-color: #f1f1f1;
+            text-align: center;
+            width: 100%;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            
+            bottom: 20px;
+        }
+
+        footer a {
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+        }
+
+        footer a .icon {
+            display: block;
+            font-size: 24px;
+        }
+        .settings {
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow-y: auto;
+        }
+
+        .settings .toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .settings .toggle input {
+            margin-left: 10px;
+        }
+
+        .settings .about,
+        .settings .share {
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #e91e63;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #d81b60;
+        }
+
+        .icon-settings {
+            margin-right: 
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Your Strong Personality</h1>
+            <!-- <button>Settings</button> -->
+            <button onclick="showSettings()" class="button">
+                <span class="icon-settings"><a href="settings.html">⚙️</a></span>
+                
+            </button>
+        </header>
+        <!-- Articles Section -->
+        <div class="article-section">
+            <h2>Stories of Strong Women</h2>
+            <div class="article-carousel">
+                <div class="article-card1">
+                    <h3>Malala Yousafzai</h3>
+                    <p>Malala is a Pakistani activist for girls' education and the youngest Nobel Prize laureate.</p>
+                    <a href="https://www.malala.org/" target="_blank">Read more</a>
+                </div>
+                <div class="article-card2">
+                    <h3>Marie Curie</h3>
+                    <p>Marie Curie was the first woman to win a Nobel Prize for her groundbreaking research in radioactivity.</p>
+                    <a href="https://www.nobelprize.org/womenwhochangedscience/stories/marie-curie/" target="_blank">Read more</a>
+                </div>
+                <div class="article-card3">
+                    <h3>Rosa Parks</h3>
+                    <p>Known as the "mother of the freedom movement," Rosa Parks sparked a civil rights revolution.</p>
+                    <a href="https://www.history.com/topics/black-history/rosa-parks" target="_blank">Read more</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <h2>Emergency</h2>
+                <p>In case of any medical emergency...</p>
+                <div>
+
+
+            <button onclick="callAmbulance()"><img src="ambulance1.png" style="width: 30px;"> (1122)</button>
+                
+            <button onclick="connectBluetooth()" class="button"><img src="bluetooth32.png" style="width: 30px;"></button>
+                
+            </div>
+
+            <div class="card">
+                <h2>Explore LiveSafe</h2>
+                <div class="grid">
+                    <div class="grid-item">
+                       <button onclick="redirectToGoogleMaps1()"><img src="police1.png" alt="Police Station"></button>
+                        <p>Police Stations</p>
+                    </div>
+                    <div class="grid-item">
+                        <button onclick="redirectToGoogleMaps2()"><img src="hospitals1.png" alt="Hospitals"></button>
+                        <p>Hospitals</p>
+                    </div>
+                    <div class="grid-item">
+                      
+                      <button onclick="redirectToGoogleMaps4()"><img src="pharmacy1.png" alt="Pharmacies"></button>
+                        <p>Pharmacies</p>
+                    </div>
+                    <div class="grid-item">
+                        <button onclick="redirectToGoogleMaps3()"><img src="bus.png" alt="Bus Stations"></button>
+                        
+                        <p>Bus Stations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Get Home Safe</h2>
+                <a href="highlighted.html"><p>Share Location Periodically</p></a>
+            </div>
+        </div>
+
+        <footer>
+            <a href="#" onclick="showHomePage()">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#" onclick="showAlerts()">
+                <a href="alerts.html"><span class="icon">🔔</span>
+                <span>Alerts</span></a>
+            </a>
+            <a href="#" onclick="showContacts()" >
+                <a href="contacts.html"><span class="icon">📞</span>
+                <span>Contact</span></a>
+            </a>
+        </footer>
+    </div>
+
+    <div class="app-container alerts" id="alerts" style="display:none;">
+        <header>
+            <h1>Alerts</h1>
+        </header>
+        <div class="container">
+            <div class="alert-message">No new messages</div>
+        </div>
+        <footer>
+            <a href="#" onclick="showHomePage()">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#">
+                <span class="icon">🔔</span>
+                <span>Alerts</span>
+            </a>
+            <a href="#" onclick="showContacts()">
+                <span class="icon">📞</span>
+                <span>Contact</span>
+            </a>
+        </footer>
+    </div>
+
+    <div class="app-container contacts" id="contacts" style="display:none;">
+        <header>
+            <h1>Contact</h1>
+        </header>
+        <div class="container">
+            <div class="contact-item">Contact 1</div>
+            <div class="contact-item">Contact 2</div>
+            <div class="contact-item">Contact 3</div>
+            <button onclick="addContact()">Add Contact</button>
+        </div>
+        <footer>
+            <a href="#" onclick="showHomePage()">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#" onclick="showAlerts()">
+                <span class="icon">🔔</span>
+                <span>Alerts</span>
+            </a>
+            <a href="#" >
+                <span class="icon">📞</span>
+                <span>Contact</span>
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        function showHomePage() {
+            document.getElementById('alerts').style.display = 'none';
+            document.getElementById('contacts').style.display = 'none';
+            document.querySelector('.app-container').style.display = 'flex';
+        }
+
+        function showAlerts() {
+            document.querySelector('.app-container').style.display = 'none';
+            document.getElementById('contacts').style.display = 'none';
+            document.getElementById('alerts').style.display = 'flex';
+        }
+
+        function showContacts() {
+            document.querySelector('.app-container').style.display = 'none';
+            document.getElementById('alerts').style.display = 'none';
+            document.getElementById('contacts').style.display = 'flex';
+        }
+
+        function addContact() {
+            const contactList = document.querySelector('.contacts .container');
+            const newContact = document.createElement('div');
+            newContact.className = 'contact-item';
+            newContact.textContent = 'New Contact';
+            contactList.appendChild(newContact);
+        }
+
+        function callAmbulance() {
+    window.location.href = "tel:1122";
+}
+
+
+        function connectBluetooth() {
+            
+            if (!navigator.bluetooth) {
+                alert('Bluetooth not supported on this device');
+                return;
+            }
+            navigator.bluetooth.requestDevice({ acceptAllDevices: true })
+                .then(device => {
+                    alert(`Connected to device: ${device.name}`);
+                    monitorVolume();
+                })
+                .catch(error => {
+                    alert('Error connecting to Bluetooth: ' + error);
+                });
+        
+        }
+        function redirectToGoogleMaps1() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            window.open(`https://www.google.com/maps/search/police+station+near+me/@${lat},${lng},15z`, "_blank");
+          }, function () {
+            alert("Geolocation failed. Please allow location access.");
+          });
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+      function redirectToGoogleMaps2() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            window.open(`https://www.google.com/maps/search/hospital+near+me/@${lat},${lng},15z`, "_blank");
+          }, function () {
+            alert("Geolocation failed. Please allow location access.");
+          });
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+      function redirectToGoogleMaps3() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            window.open(`https://www.google.com/maps/search/bus+stations+near+me/@${lat},${lng},15z`, "_blank");
+          }, function () {
+            alert("Geolocation failed. Please allow location access.");
+          });
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+      function redirectToGoogleMaps4() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            window.open(`https://www.google.com/maps/search/pharmacy+near+me/@${lat},${lng},15z`, "_blank");
+          }, function () {
+            alert("Geolocation failed. Please allow location access.");
+          });
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+        // Array to store emergency contact records
+        const emergencyContacts = [
+            { name: 'John Doe', phone: '123-456-7890' },
+            { name: 'Jane Smith', phone: '987-654-3210' }
+        ];
+
+        // Function to render the contacts on the page
+        function renderEmergencyContacts() {
+            const contactList = document.getElementById('emergencyContacts');
+            contactList.innerHTML = ''; // Clear the current list
+
+            emergencyContacts.forEach(contact => {
+                const li = document.createElement('li');
+                li.className = 'contact-item';
+                li.innerHTML = `
+                    <span>${contact.name}</span> 
+                    <span>${contact.phone}</span>
+                `;
+                contactList.appendChild(li);
+            });
+        }
+
+        // Function to add a new emergency contact
+        function addEmergencyContact() {
+            const name = prompt('Enter the contact name:');
+            const phone = prompt('Enter the contact phone number:');
+
+            if (name && phone) {
+                emergencyContacts.push({ name, phone });
+                renderEmergencyContacts(); // Re-render the list
+            } else {
+                alert('Both name and phone are required.');
+            }
+        }
+
+        // Initial rendering of emergency contacts
+        renderEmergencyContacts();
+    </script>
+</body>
+</html>

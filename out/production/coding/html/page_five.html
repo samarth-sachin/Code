@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bluetooth Tracing</title>
+  <link href='https://fonts.googleapis.com/css?family=Yatra One' rel='stylesheet'>
+  <style>
+    body {
+      font-family: 'Yatra One', sans-serif;
+      background-color: rgba(176, 234, 215, 0.8);
+      margin: 0;
+      padding: 0;
+    }
+
+    #content {
+      margin: 20px;
+      padding: 20px;
+      border: 2px solid #000;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      background-color: rgba(135, 206, 235, 0.8);
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: rgba(176, 224, 230, 1);
+    }
+
+    #device-list {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h3>Bluetooth Tracing</h3>
+    <p>
+      The Bluetooth Tracing feature allows you to detect nearby Bluetooth-enabled devices. This can be helpful for tracking lost devices or ensuring safety by monitoring for unknown devices in your vicinity.
+    </p>
+    <p>
+      <strong>Steps to use Bluetooth Tracing:</strong>
+    </p>
+    <ol>
+      <li>Turn on Bluetooth on your device.</li>
+      <li>Click the "Scan Devices" button below to start scanning.</li>
+      <li>A list of nearby Bluetooth devices will be displayed.</li>
+    </ol>
+    <button onclick="startBluetoothScanning()">Scan Devices</button>
+    <div id="device-list"></div>
+  </div>
+
+  <script>
+    function startBluetoothScanning() {
+      const deviceList = document.getElementById('device-list');
+      deviceList.innerHTML = '<p>Scanning for Bluetooth devices...</p>';
+      // Simulating scan results (actual Bluetooth API requires secure context and permissions)
+      setTimeout(() => {
+        deviceList.innerHTML = '<ul>' +
+          '<li>Device 1 - 00:11:22:33:44:55</li>' +
+          '<li>Device 2 - 66:77:88:99:AA:BB</li>' +
+          '<li>Device 3 - CC:DD:EE:FF:00:11</li>' +
+          '</ul>';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

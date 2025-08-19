@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्री साई शेती सेवा केंद्र</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8f5e9;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            background: url("title.jpg") no-repeat center/cover;
+            color: white;
+            padding: 20px;
+            height: 200px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .product {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+        }
+        .product img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .product button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        .product button:hover {
+            background-color: #388e3c;
+        }
+        .remove-btn {
+            background-color: red;
+        }
+        .remove-btn:hover {
+            background-color: darkred;
+        }
+        #search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #search-bar input {
+            padding: 8px;
+            font-size: 16px;
+            border: 2px solid #4caf50;
+            border-radius: 5px;
+            width: 300px;
+        }
+        #cart {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        .quantity-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .quantity-control button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        .quantity-control input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 769px) {
+            .products {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Add a title or logo here -->
+    </header>
+
+    <div class="container">
+        <div id="search-bar">
+            <input type="text" id="search" placeholder="Search for products..." onkeyup="searchProducts()">
+        </div>
+
+        <div class="products" id="product-list"></div>
+
+        <div id="cart">
+            <h3>Shopping Cart</h3>
+            <ul id="cart-items"></ul>
+            <p><strong>Total: ₹<span id="cart-total">0.00</span></strong></p>
+        </div>
+    </div>
+
+    <script>
+        
+    let cart = [];
+    let products = [
+        { name: "Urea Fertilizer", price: 300, image: "urea-removebg-preview.png" },
+        { name: "20:20", price: 900, image: "20-aahar-1-removebg-preview.png" },
+        { name: "10:26:26", price: 1780, image: "102626-removebg-preview.png" },
+        { name: "12:32:16", price: 250, image: "123216-removebg-preview.png" },
+        { name: "Growth Booster", price: 350, image: "143514-removebg-preview.png" },
+        { name: "Liquid Fertilizer", price: 400, image: "2020013-removebg-preview.png" },
+        { name: "Liquid Fertilizer", price: 400, image: "allwin-1-500x500.webp" },
+        { name: "12:32:16", price: 250, image: "ammonium_sulphate-removebg-preview.png" },
+        { name: "12:32:16", price: 250, image: "bhujivan-500x500.webp" },
+        { name: "12:32:16", price: 250, image: "bio-c-1-500x500.webp" },
+        { name: "12:32:16", price: 250, image: "dap-removebg-preview.png" },
+        { name: "12:32:16", price: 250, image: "grow-fast-amino-acid-granules-500x500.webp" },
+        { name: "12:32:16", price: 250, image: "jump-plant-growth-promoter-powder-500x500.webp" },
+        { name: "12:32:16", price: 250, image: "jump-plus-plant-growth-promoter-powder-500x500.webp" },
+        { name: "12:32:16", price: 250, image: "pdm-potash-1-500x500.webp" },
+        { name: "12:32:16", price: 250, image: "potash-removebg-preview.png" },
+        { name: "12:32:16", price: 250, image: "ssp-removebg-preview.png" },
+        { name: "12:32:16", price: 250, image: "super-prom-growth-promoter-500x500.webp" },
+        { name: "12:32:16", price: 250, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJcCEXaqZlm671rRwjts4-KDVe-gu6PGK6YQ&s" },
+    ];
+
+    function displayProducts(productArray = products) {
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = '';
+        productArray.forEach(product => {
+            productList.innerHTML += createProductHTML(product);
+        });
+    }
+
+    function createProductHTML(product) {
+        const sanitizedProductName = product.name.replace(/\s+/g, '-'); // Avoid spaces in id
+        return `<div class="product">
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p><strong>₹${product.price}</strong></p>
+            <div class="quantity-control">
+                <button onclick="adjustQuantity('${sanitizedProductName}', -1)">-</button>
+                <input type="text" id="quantity-${sanitizedProductName}" value="1" readonly>
+                <button onclick="adjustQuantity('${sanitizedProductName}', 1)">+</button>
+            </div>
+            <button onclick="addToCart('${product.name}', ${product.price}, '${sanitizedProductName}')">Add to Cart</button>
+        </div>`;
+    }
+
+    function adjustQuantity(productName, change) {
+        const quantityInput = document.getElementById(`quantity-${productName}`);
+        let quantity = parseInt(quantityInput.value) + change;
+        if (quantity < 1) quantity = 1;
+        quantityInput.value = quantity;
+    }
+
+    function addToCart(productName, price, sanitizedProductName) {
+        const quantity = parseInt(document.getElementById(`quantity-${sanitizedProductName}`).value);
+        const existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            cart.push({ name: productName, price: price, quantity: quantity });
+        }
+        updateCart();
+    }
+
+    function removeFromCart(productName) {
+        cart = cart.filter(item => item.name !== productName);
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        cartItems.innerHTML = '';
+        let total = 0;
+        cart.forEach(item => {
+            cartItems.innerHTML += `<li>${item.name} - ₹${item.price.toFixed(2)} x ${item.quantity} = ₹${(item.price * item.quantity).toFixed(2)} 
+                <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button></li>`;
+            total += item.price * item.quantity;
+        });
+        cartTotal.textContent = total.toFixed(2);
+    }
+
+    function searchProducts() {
+        const searchTerm = document.getElementById('search').value.toLowerCase();
+        const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
+        displayProducts(filteredProducts);
+    }
+
+    window.onload = () => displayProducts();
+</script>

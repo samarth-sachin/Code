@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main$stack",
+            "request": "launch",
+            "mainClass": "Main$stack",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "practa",
+            "request": "launch",
+            "mainClass": "practa",
+            "projectName": "coding_e0e26dd7"
+        }
+    ]
+}

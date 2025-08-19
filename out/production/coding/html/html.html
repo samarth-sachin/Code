@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 90%;
+        }
+
+        header {
+            padding: 10px;
+            background-color: #f1f1f1;
+            text-align: center;
+            width: 100%;
+        }
+
+        .article-section {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            border-bottom: 1px solid #e91e63;
+            color: #880e4f;
+            text-align: center;
+        }
+
+        .article-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #e91e63 transparent;
+        }
+
+        .article-carousel::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .article-carousel::-webkit-scrollbar-thumb {
+            background-color: #e91e63;
+            border-radius: 4px;
+        }
+
+        .article-card {
+            min-width: 300px;
+            background-color: #fff;
+            border: 1px solid #f48fb1;
+            border-radius: 6px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .article-card h3 {
+            font-size: 16px;
+            margin: 0 0 8px;
+            color: #d81b60;
+        }
+
+        .article-card p {
+            font-size: 14px;
+            color: #6d4c41;
+            margin: 0 0 10px;
+        }
+
+        .article-card a {
+            color: #e91e63;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .article-card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            position: sticky;
+            bottom: 0;
+        }
+
+        footer a {
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+        }
+
+        footer a .icon {
+            display: block;
+            font-size: 24px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #e91e63;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.2s;
+        }
+
+        .button:hover {
+            background-color: #d81b60;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .card {
+            margin: 10px 0;
+            padding: 15px;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Your Strong Personality</h1>
+            <button onclick="showSettings()" class="button">
+                <span class="icon-settings">⚙️</span>
+            </button>
+        </header>
+        <div class="article-section">
+            <h2>Stories of Strong Women</h2>
+            <div class="article-carousel">
+                <div class="article-card">
+                    <h3>Malala Yousafzai</h3>
+                    <p>Malala is a Pakistani activist for girls' education and the youngest Nobel Prize laureate.</p>
+                    <a href="https://www.malala.org/" target="_blank">Read more</a>
+                </div>
+                <div class="article-card">
+                    <h3>Marie Curie</h3>
+                    <p>Marie Curie was the first woman to win a Nobel Prize for her groundbreaking research in radioactivity.</p>
+                    <a href="https://www.nobelprize.org/womenwhochangedscience/stories/marie-curie/" target="_blank">Read more</a>
+                </div>
+                <div class="article-card">
+                    <h3>Rosa Parks</h3>
+                    <p>Known as the "mother of the freedom movement," Rosa Parks sparked a civil rights revolution.</p>
+                    <a href="https://www.history.com/topics/black-history/rosa-parks" target="_blank">Read more</a>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <a href="#" onclick="showHomePage()">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#" onclick="showAlerts()">
+                <span class="icon">🔔</span>
+                <span>Alerts</span>
+            </a>
+            <a href="#" onclick="showContacts()">
+                <span class="icon">📞</span>
+                <span>Contact</span>
+            </a>
+        </footer>
+    </div>
+</body>
+</html>

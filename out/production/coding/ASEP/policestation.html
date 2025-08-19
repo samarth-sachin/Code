@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Police Station Search</title>
+  </head>
+  <body>
+    <h1>Find Nearby Police Stations</h1>
+    <button onclick="redirectToGoogleMaps()">Show Police Stations Near Me</button>
+
+    <script>
+      function redirectToGoogleMaps() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            window.open(`https://www.google.com/maps/search/police+station+near+me/@${lat},${lng},15z`, "_blank");
+          }, function () {
+            alert("Geolocation failed. Please allow location access.");
+          });
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+    </script>
+  </body>
+</html>

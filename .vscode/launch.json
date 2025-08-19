@@ -1,0 +1,141 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "articulation",
+            "request": "launch",
+            "mainClass": "articulation",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "tarjan",
+            "request": "launch",
+            "mainClass": "tarjan",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "kosaraju",
+            "request": "launch",
+            "mainClass": "kosaraju",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "tropo",
+            "request": "launch",
+            "mainClass": "tropo",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "prism",
+            "request": "launch",
+            "mainClass": "prism",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "bellman",
+            "request": "launch",
+            "mainClass": "bellman",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "djikstras",
+            "request": "launch",
+            "mainClass": "djikstras",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "cycledi",
+            "request": "launch",
+            "mainClass": "cycledi",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "cycleun",
+            "request": "launch",
+            "mainClass": "cycleun",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "allpaths",
+            "request": "launch",
+            "mainClass": "allpaths",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "bfs",
+            "request": "launch",
+            "mainClass": "bfs",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "adjancylist",
+            "request": "launch",
+            "mainClass": "adjancylist",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "adjancylist",
+            "request": "launch",
+            "mainClass": "Graphs.adjancylist",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "binarytree",
+            "request": "launch",
+            "mainClass": "binarytree",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "trie",
+            "request": "launch",
+            "mainClass": "trie",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "trie",
+            "request": "launch",
+            "mainClass": "Trie.trie",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "Solution",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "Main$stack",
+            "request": "launch",
+            "mainClass": "Main$stack",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "practa",
+            "request": "launch",
+            "mainClass": "practa",
+            "projectName": "coding_e0e26dd7"
+        }
+    ]
+}
