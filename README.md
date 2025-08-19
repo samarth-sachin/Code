@@ -40,8 +40,4 @@ The repo is organized by **domains / languages** for easy navigation:
 
 ---
 
-## 🔥 How to Use
-1. Clone this repo  
-   ```bash
-   git clone https://github.com/<your-username>/<your-repo-name>.git
-   cd <your-repo-name>
+
