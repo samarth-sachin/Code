@@ -1,7 +1,7 @@
-import java.math.BigInteger;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
-class BigInteger {
+class biginteger {
   public static void main(String[] args) {
     BD();
   }
@@ -60,7 +60,7 @@ class BigInteger {
           System.out.println("Yes");
     } 
 
-    System.out.println(Factorial.fact(100));
+    // System.out.println(Math.fact(100));
   }
   
 }

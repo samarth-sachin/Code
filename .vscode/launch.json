@@ -6,6 +6,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "anomans",
+            "request": "launch",
+            "mainClass": "anomans",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "Consumer",
+            "request": "launch",
+            "mainClass": "Consumer",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "exception",
+            "request": "launch",
+            "mainClass": "exception",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "assignment3",
+            "request": "launch",
+            "mainClass": "assignment3",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "assignment2",
+            "request": "launch",
+            "mainClass": "assignment2",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "Student",
+            "request": "launch",
+            "mainClass": "Student",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
+            "name": "GFG",
+            "request": "launch",
+            "mainClass": "GFG",
+            "projectName": "coding_e0e26dd7"
+        },
+        {
+            "type": "java",
             "name": "articulation",
             "request": "launch",
             "mainClass": "articulation",
