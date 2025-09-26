@@ -1,0 +1,15 @@
+{
+    "School":[
+        {  "Name": "SRVK",
+            "Principal": "Someone",
+            "Students":[
+                {
+                    "roll no":8,
+                    "name": "samarth",
+                    "marks":99
+                }
+            ]
+
+        }
+    ]
+}

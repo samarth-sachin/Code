@@ -1,12 +1,18 @@
 public class implicit {
-    public static void s()
+    public static void s(int a)
     {
-        int a=10;
+        
         double y=a;
         //implicit conversion if int to double
 
     }
+    
+    static void s(int a,int b)
+    {
+
+    }
     public static void main(String[] args) {
+        s(10);
         
     }
 }
