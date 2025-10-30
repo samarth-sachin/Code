@@ -1,19 +1,20 @@
-class Solution {
-    public static int numberOfPairs(int[] nums1, int[] nums2, int k) {
-        int count =0;
-        for(int i=0;i<nums1.length;i++)
-        {
-          for(int j=0;j<nums2.length;j++)
-          {
-            if(nums1[i]%(nums2[j]*k)==0) count++;
-          }
-        }
-        return count;
-    }
-    public static void main(String[] args) {
-      int a[]={1,2,4,12};
-      int b[]={2,4};
-      System.out.println(numberOfPairs(a, b, 3));
-    }
+import java.util.Arrays;
 
+class Solution {
+
+    public static int longestConsecutive(int[] arr) {
+        Arrays.sort(arr);
+        int count =0;
+        int newxount=0;
+        for(int i=1;i<arr.length;i++)
+        { if(arr[i-1]+1==arr[i]) count++;
+          else if(arr[i-1]+1!=arr[i]) newxount++;
+        }
+        return Math.max(count, newxount);
+        
+    }
+    public static void main(String[]args)
+    { System.out.println(longestConsecutive(new int[]{2, 6, 1, 9, 4, 5, 3}));
+
+    }
 }

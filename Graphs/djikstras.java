@@ -47,11 +47,9 @@ public class djikstras {
         PriorityQueue<Pair> q = new PriorityQueue<>();
         int dist[] = new int[V];
         boolean vis[] = new boolean[V];
-
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[src] = 0;
         q.add(new Pair(src, 0));
-
         while (!q.isEmpty()) {
             Pair curr = q.remove();
             if (!vis[curr.node]) {
