@@ -8,9 +8,7 @@ typedef struct Node {
     struct Node *next;
     struct Node *previous;
 } Node;
-
 Node *head = NULL;
-
 void insert() {
     Node *ptr = (Node *)malloc(sizeof(Node));
     printf("Enter rollno, name, age: ");
@@ -44,7 +42,6 @@ void display() {
     }
     printf("NULL\n");
 }
-
 void delete() {
     int key;
     printf("Enter rollno to delete: ");
